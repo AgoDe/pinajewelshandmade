@@ -1,0 +1,32 @@
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) #siteNav > li > a {
+    color:#111 !important;
+}
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) #siteNav > li > a:hover {
+    color:#111!important;
+}
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) #siteNav > li > a:after {
+    background-color:#111;
+}
+
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .iconset,
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .iconset a {
+    color:#111;
+}
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .iconset a:hover,
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .iconset:hover .icon,
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .iconset:hover .text {
+    color:#111;
+}
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .counter {
+    background:#eee; color:#000;
+}
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .js-mobile-nav-toggle .an {
+    color: #111;
+}
+.template-index:not(.searchact) .classicHeader:not(.sticky-header) .sticky-logo { display:none; }
+.template-index.searchact .classicHeader .default-logo,
+.template-index .classicHeader.sticky-header .default-logo { display:none; }
+
+.collection-header {
+    padding-top: 140px!important;
+}

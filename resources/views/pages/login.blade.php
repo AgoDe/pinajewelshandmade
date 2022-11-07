@@ -4,15 +4,21 @@
 
 @section('descriprion', '')
 
+@section('optionalCss')
+    <link rel="stylesheet" href="/assets/css/optionalStyle.css" />
+@endsection
+
 @section('content')
-    <div id="page-content ">
+    <div id="page-content mt-5">
         <!--Collection Banner-->
-        <div class="collection-header">
+        <div class="collection-header padding_section_top">
             <div class="collection-hero">
-                <div class="collection-hero__image"></div>
+                <div class="collection-hero__image">
+
+                </div>
                 <div class="collection-hero__title-wrapper container">
                     <h1 class="collection-hero__title">Login</h1>
-                    <div class="breadcrumbs text-uppercase mt-1 mt-lg-2"><a href="index.html" title="Back to the home page">Home</a><span>|</span><span class="fw-bold">Login</span></div>
+                    <div class="breadcrumbs text-uppercase mt-1 mt-lg-2"><a href="/" title="Back to the home page">Home</a><span>|</span><span class="fw-bold">Login</span></div>
                 </div>
             </div>
         </div>

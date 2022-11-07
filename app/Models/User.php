@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'first_name',
+        'last_name',
         'password',
+        'address',
+        'cap',
+        'country',
     ];
 
     /**
@@ -41,4 +44,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* ------- ATTRIBUTES ------------- */
+
+    public function getFullNameAttributes()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    /* ------- RELATIONS ------------- */
+
+
+
 }

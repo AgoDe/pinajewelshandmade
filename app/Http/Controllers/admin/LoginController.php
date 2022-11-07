@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use http\Env\Request;
+
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,20 +13,20 @@ class LoginController extends Controller
 
     protected $redirectTo = '/admin';
 
-    public function _construct()
+    public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:admin')->except('destroy');
     }
 
     public function create()
     {
-        return view('admin.session.create');
+        return view('admin.pages.login');
     }
 
     public function store(Request $request)
     {
         $attributes = $request->validate([
-           'email'      => 'required|unique',
+           'email'      => 'required',
            'password'   => 'required|min:6',
         ]);
 
@@ -41,7 +42,6 @@ class LoginController extends Controller
     public function destroy(Request $request)
     {
         Auth::guard('admin')->logout();
-        $request->session()->invalidate();
         return redirect()->route('admin.login');
     }
 

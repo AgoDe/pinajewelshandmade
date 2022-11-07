@@ -4,6 +4,10 @@
 
 @section('description', '')
 
+@section('optionalCss')
+    <link rel="stylesheet" href="/assets/css/optionalStyle.css" />
+@endsection
+
 @section('content')
     <div id="page-content">
         <!--Collection Banner-->
@@ -25,7 +29,7 @@
                 <div class="row align-items-center g-0">
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="d-single-info">
-                            <p class="user-name">Ciao <span class="fw-600">{{auth()->user()->name}}</span></p>
+                            <p class="user-name">Ciao <span class="fw-600">{{auth()->user()->first_name}}</span></p>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-sm-6">

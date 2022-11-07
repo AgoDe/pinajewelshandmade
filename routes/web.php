@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +18,25 @@ use Illuminate\Support\Facades\Route;
 */
 require 'admin.php';
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/test', 'shop.show');
+
+Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/chisiamo', [FrontendController::class, 'aboutus'])->name('aboutus');
+Route::get('/contatti', [FrontendController::class, 'contact'])->name('contact');
+
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+// users routes
+Route::middleware('guest')->group(function () {
+    Route::get('/registrazione', [RegisterController::class, 'create'])->name('register');
+    Route::post('/registrazione', [RegisterController::class, 'store'])->name('register.store');
+    Route::get('/login', [LoginController::class, 'create'])->name('login');
+    Route::post('/login', [LoginController::class, 'store'])->name('loginStore');
 });
 
-// customer routes
-Route::get('/login', [LoginController::class, 'create'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'store'])->name('loginStore')->middleware('guest');
-Route::post('/logout', [LoginController::class, 'destroy'])->name('logout')->middleware('auth');
-
-Route::get('/{customer:slug}/dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+    Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
+});
 
 
 
